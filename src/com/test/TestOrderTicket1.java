@@ -37,7 +37,7 @@ public class TestOrderTicket1 {
 		 * Sample Input
 		 */
 		
-		String ticket1 = "ooo";
+		String ticket1 = "000000-0000-002";
 		
 		
 		try {
@@ -45,9 +45,10 @@ public class TestOrderTicket1 {
 			if(!tickets.contains(new Ticket(ticket1)))
 				tickets.add(new Ticket(ticket1)); //add successfully
 			
-			if(!tickets.contains(new Ticket(ticket1)))  
+			if(!tickets.contains(new Ticket(ticket1)))  {
 				tickets.add(new Ticket(ticket1)); //this code does not execute.
-			
+				System.out.println("error!");
+			}
 			
 		} catch (Exception e) {
 			

@@ -10,13 +10,15 @@ import org.w3c.dom.NodeList;
 
 public class TrainInfo {
 	
-	private String        trainID = null;
+	private Integer        trainID = null;
+	private String        trainType = null;
 	private List<TimeInfo> tables = new ArrayList<TimeInfo>();
 			
 	public TrainInfo(Node item){
 		
 		Element eElement = (Element) item;
-		trainID = eElement.getAttribute("CarClass");
+		trainType = eElement.getAttribute("CarClass");
+		trainID = new Integer(eElement.getAttribute("Train"));
 		NodeList timeinfos = item.getChildNodes();
 		
 		for (int temp = 0; temp < timeinfos.getLength(); temp++) {
@@ -27,12 +29,38 @@ public class TrainInfo {
 			
 		}
 	}
-	
+
+	public Integer getTrainID() {
+		return trainID;
+	}
+
+	public String getTrainType() {
+		return trainType;
+	}
+	public TimeInfo getTimeInfo(int stationOrder){
+		for(TimeInfo t : tables){
+			if(t.order==stationOrder) return new TimeInfo(t);
+		}
+		return null;
+	}
+
 	
 	public class TimeInfo{
 		
 		private String arrtime = null;
 		private String deptime = null;
+		public String getArrtime() {
+			return arrtime;
+		}
+
+		public String getDeptime() {
+			return deptime;
+		}
+
+		public String getStationID() {
+			return stationID;
+		}
+
 		private int order = 0;
 		private String stationID = null;
 		
@@ -43,8 +71,22 @@ public class TrainInfo {
 			this.order     = Integer.parseInt(eElement.getAttribute("Order"));
 			this.stationID = eElement.getAttribute("Station");
 		}
+
+		public TimeInfo(TimeInfo t) {
+			this.arrtime   = t.arrtime;
+			this.deptime   = t.deptime;
+			this.order     = t.order;
+			this.stationID = t.stationID;
+		}
 		
-		//TODO Any method you'd like to 
 		
+	}
+	//TODO Any method you'd like to 
+	public int getOrder(int station){
+		int order = 0;
+		for (TimeInfo i : tables){
+			if(new Integer(i.stationID) == station){order = i.order;}
+		}
+		return order;
 	}
 }

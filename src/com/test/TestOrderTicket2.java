@@ -70,13 +70,13 @@ public class TestOrderTicket2 {
 			ticket.printTicket();
 		}
 		
-		for(Ticket ticket: tickets){
-			ticket.cancel();
-		}
-		
-		for(Ticket ticket: tickets){
-			ticket.printTicket(); // You sould Print the "null"
-		}
+//		for(Ticket ticket: tickets){
+//			ticket.cancel();
+//		}
+//		
+//		for(Ticket ticket: tickets){
+//			ticket.printTicket(); // You should Print the "null"
+//		}
 		
 	}
 

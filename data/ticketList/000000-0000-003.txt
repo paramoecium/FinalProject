@@ -1,0 +1,1 @@
+{"ticketID":"000000-0000-003","deptime":"05:51:00","arrtime":"06:21:00","seat":"Car 1-07","trainType":"1131","trainID":1111,"date":"2014-06-22"}

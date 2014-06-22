@@ -69,7 +69,7 @@ public class TestOrderTicket3 {
 		for(Ticket ticket: tickets){
 			ticket.printTicket();
 			//TODO: get the ticket number(TicketNo) of each ticket and save them into ticket 
-			
+			ticketNos.add(ticket.getTicketID());
 		}
 		
 		
